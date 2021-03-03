@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 def Home(request):
-    return HttpResponse("Hello World")
+    return render(request, base)
 def InsertOperations(request):    
     qtd = request.POST['password']              
     price = request.POST['email']    
