@@ -1,46 +1,39 @@
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 
 
 def Home(request):
-    return render(request, base)
-def InsertOperations(request):    
-    qtd = request.POST['password']              
-    price = request.POST['email']    
-    tipo = request.POST.get('type', "Comum");  
-    taxa = request.POST['taxa']    
-    date = request.POST['date'] 
-    id_user =  request.user_id  
+    return render(request, 'base.html')
 
-    operacao = Operacao(price = price, qtd = qtd, tipo = tipo, taxa = taxa, date = date)    
-    operacao.save()
-    return render(request,'minha_carteira.html')
 
-def InsertUser(request):
-    username = request.POST['username']
-    email = request.POST['email']
-    password = request.POST['password']
-    password_verification = request.POST['password_verification']
+def GotoInsertOperation(request):
+    return render(request, 'operation_form_screen.html')
 
-    if password == password_verification:
-        if User. 
-def login_user(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
 
-        user =  authenticate(username=username, password=password)
-        if user in not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            return redirect('login')
+def GotoListOperation(request):
+    return render(request, 'operation_form_screen.html')
 
-def ListOperations(request):
+
+def InsertOperations(request):
+    if request.method == "POST":
+        if request.user.is_authenticated:
+            qtd = request.POST['qtd']
+            price = request.POST['price']
+            type_operation = request.POST['type']
+            tax = request.POST['taxa']
+            date = request.POST['date']
+            usuario = request.user
+            user = User.objects.get(user=usuario)
+            operacao = Operacao(
+                price=price, qtd=qtd, type_operation=type_operation, tax=tax, date=date, user=user)
+            operacao.save()
+    return redirect('home')
+
+
+def checkOperations(request):
     users_list = []
-    for o in Operacao.objects.raw('SELECT * FROM polls_operacao where id= ${request.user_id}'):        
-        operations = Operacao(o.type,o.qtd,o.price,o.date)               
-        users_list.append(user)        
-    contexto = {'operations': users_list}            
-    return render(request,'operation_list.html', context=contexto) 
+    for o in Operacao.objects.raw('SELECT * FROM polls_operacao where id= ${request.user_id}'):
+        operations = Operacao(o.type, o.qtd, o.price, o.date)
+        users_list.append(user)
+    contexto = {'operations': users_list}
+    return render(request, 'operation_list.html', context=contexto)
