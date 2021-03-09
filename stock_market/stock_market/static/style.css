@@ -1,0 +1,155 @@
+@font-face {
+    font-family: Montserrat_Bold;
+    src: url(fonts/Montserrat-Bold.ttf);
+  }
+  @font-face {
+    font-family: Montserrat_Medium;
+    src: url(fonts/Montserrat-Medium.ttf);
+  }
+  @font-face {
+    font-family: Montserrat_Light;
+    src: url(fonts/Montserrat-Thin.ttf);
+  }
+  @font-face {
+    font-family: Rubik_Bold;
+    src: url(fonts/Rubik-Bold.ttf);
+  }
+  @font-face {
+    font-family: Rubik_Light;
+    src: url(fonts/Rubik-Light.ttf);
+  }
+
+body {
+    background-image: linear-gradient(to right,#373737,#262626);    
+    
+}
+html,body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.card {
+    font-family: Montserrat_Medium;
+    border-radius: 30px;
+    width: 400px;
+    height: 150px;
+    background-color: #3C3C3C;
+    margin: 10px;
+}
+
+#amount_div{
+    grid-row: 1/2;
+    font-family: Rubik_Light;
+    color: linen;
+
+}
+
+#div_main {
+    padding: 20px;
+}
+#title_div{
+    align-items: center;
+    color: linen;
+    font-size: 20px;
+    font-family: Montserrat_Bold;
+}
+#card_header {
+    font-family: Montserrat_Medium;
+    color: linen;
+}
+
+#nav_item{
+  font-family: Montserrat_Medium;
+}
+nav{   
+  padding-left: 10px; 
+  font-family: Rubik_Medium;
+}
+
+* {
+  margin:0;
+  padding:0;
+}
+
+#logout_div{
+  background-color: yellow;
+}
+
+#graph_1,#graph_2{
+  width: 50%;
+  padding: 0px;
+  margin: 1px;
+  border: 5px #ffb700 solid;
+}
+
+#operations_chart_1{
+  background: linen;
+  height: 200px;    
+}
+#operations_chart_2{
+  background: linen; 
+  height: 200px;      
+}
+
+#operations_chart_3{
+  background: white;      
+}
+
+#bounth {
+  background:#ffb700;
+  font-family: Montserrat_Bold;
+  font-size: 15px;
+  text-align: center; 
+  margin: 1px; 
+  height: 200px;  
+}
+#bounth_2 {
+  background:#ad7c00;
+  font-family: Montserrat_Bold;
+  font-size: 10px;
+  text-align: center;  
+  margin: 1px;
+  height: 200px;  
+}
+
+#search_form {
+  font-family: Montserrat_Bold;
+  color: aliceblue;
+}
+
+#list_view_operations{
+  height:500px;  
+}
+
+#radio_camp {
+  margin: 20px;
+}
+
+#div_form{    
+  font-family: Montserrat_Bold;  
+  padding: 10px;
+  width: 100%;
+  color: antiquewhite;
+  margin: 20px;
+  margin-top: 10%;
+}
+
+#image_login{
+  width: 200px;
+}
+
+#login_div{
+  font-family: Montserrat_Bold;
+  color: white;  
+     
+}
+#login_div_2{
+  font-family: Montserrat_Bold;
+  color: white;
+  text-align: center;
+  height: 800px;
+}
+
+#pizza_graph{
+  height: 30%;
+}

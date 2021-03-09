@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% load static %}
+{% block content %}
+
+
+<div class="col">
+  <div class="col">
+    <form id="search_form" method="POST" action="{% url 'search_operations' %}">
+      {% csrf_token %}
+      <div class="input-group rounded" style="width: 50%;">
+        <input type="search" class="form-control rounded" placeholder="Procurar" 
+          aria-describedby="search-addon" name="search_camp"/>
+          <button type="submit" class="btn btn-secondary">Pesquisar</button>
+      </div>
+      <div id="radio_camp">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="type_operation" id="exampleRadios1" value="C">
+          <label class="form-check-label" for="exampleRadios1">
+            Compra
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="type_operation" id="exampleRadios2" value="V">
+          <label class="form-check-label" for="exampleRadios2">
+            Venda
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row" id="list_view_operations">
+    {% for operation in operations %}
+    <div class="card" id="div_main">
+      <h5 id="title_div">{{operation.shareName}}</h5>
+      <div>
+        {% if operation.type_operation == 'V' %}
+        <div class="row g-0" id="title_div">
+          <h3 class="col" style="color: red;">Venda</h5>
+            <h6 class="col">{{operation.date}}</h6>
+        </div>
+        {% else %}
+        <div class="row">
+          <h3 class="card-title" style="color: greenyellow;">Compra</h5>
+            <h5 class="card-text">{{operation.date}}</h4>
+        </div>
+        {% endif %}
+
+
+        <div id="amount_div" class="row g-0" style="padding: 1px;">
+          <div class="col">
+            <h6 class="card-text">{{operation.amount}} ações</h6>
+          </div>
+          <h6 class="col">{{operation.unit_price}} $</h6>
+          <h6 class="col" style="font-family: Montserrat_Bold;color:cyan">{{operation.totalOperationValue}} $</h6>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}

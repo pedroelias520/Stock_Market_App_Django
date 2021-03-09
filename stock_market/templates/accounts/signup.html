@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div>
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %}
+        <label>Email</label>
+        <input type="email" alt="Email" name="email">
+        <label>Nome</label>
+        <input type="text" alt="user" name="username">
+        <label>Senha</label>
+        <input type="password" alt="Senha" name="password">
+        <label>Repita sua senha</label>
+        <input type="password" alt="Repita sua senha" name="password_confirm">
+        <br>
+        <label>Perfil de risco</label>
+        <div class="col-md-6">
+            <div>
+                <input class="form-check-input" type="radio" name="risk_person" id="risk_person" value="CS"
+                    checked>
+                <label class="form-check-label" for="gridRadios1">
+                    Conservador
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input" type="radio" name="risk_person" id="risk_person" value="MD"
+                    checked>
+                <label class="form-check-label" for="gridRadios1">
+                    Moderado
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input" type="radio" name="risk_person" id="risk_person" value="BD"
+                    checked>
+                <label class="form-check-label" for="gridRadios1">
+                    Arrojado
+                </label>
+            </div>
+        </div>
+        <button type="submit">Registrar</button>
+    </form>
+    <div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {%if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
