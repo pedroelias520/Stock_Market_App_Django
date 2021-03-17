@@ -1,4 +1,6 @@
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 from . import views
 
@@ -9,4 +11,4 @@ urlpatterns = [
     path('insert_operation/',views.InsertOperations,name='insert_operation'),
     path('check_operations',views.checkOperations,name='check_operation',),
     path('search_operations',views.SearchOperations,name='search_operations')
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

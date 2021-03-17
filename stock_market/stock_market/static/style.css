@@ -96,21 +96,22 @@ nav{
 }
 
 #bounth {
-  background:#ffb700;
-  font-family: Montserrat_Bold;
+  background:#ffb700;  
   font-size: 15px;
   text-align: center; 
-  margin: 1px; 
-  height: 200px;  
+  font-family: Montserrat_Bold;
+  margin: 2px; 
+  height: 250px;  
 }
 #bounth_2 {
-  background:#ad7c00;
+  background:#ad7c00;  
+  font-size: 20px;
+  text-align: center;   
   font-family: Montserrat_Bold;
-  font-size: 10px;
-  text-align: center;  
-  margin: 1px;
-  height: 200px;  
+  margin: 2px;
+  height: 250px;  
 }
+
 
 #search_form {
   font-family: Montserrat_Bold;
