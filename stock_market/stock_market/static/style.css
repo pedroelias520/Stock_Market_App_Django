@@ -18,7 +18,9 @@
     font-family: Rubik_Light;
     src: url(fonts/Rubik-Light.ttf);
   }
-
+*{
+  font-family: Montserrat_Bold;
+}
 body {
     background-image: linear-gradient(to right,#373737,#262626);    
     
@@ -61,9 +63,18 @@ html,body {
 #nav_item{
   font-family: Montserrat_Medium;
 }
+#nan_item:hover{
+  background: #ffb700;
+}
 nav{   
   padding-left: 10px; 
   font-family: Rubik_Medium;
+}
+
+
+.button_submit{
+  background: #ffb700;
+  border-radius: 40px;
 }
 
 * {
@@ -140,9 +151,9 @@ nav{
 }
 
 #login_div{
-  font-family: Montserrat_Bold;
-  color: white;  
-     
+  display: flex;
+  align-content: center;
+  align-items: center;     
 }
 #login_div_2{
   font-family: Montserrat_Bold;
@@ -153,4 +164,23 @@ nav{
 
 #pizza_graph{
   height: 30%;
+}
+
+.navbar-brand{
+  width: 8rem;  
+  background-color: transparent; 
+  border: 2px solid #ffb700;
+  border-radius: 45px;   
+  font-size: 15px;  
+  text-align: center;
+}
+
+.navbar-brand:hover{
+  box-shadow: inset 400px 0 0 0 #ffb700;
+  transition: all ease 1s;
+}
+
+.form_control {
+  border-radius: 2rem;
+  width: 20rem;
 }
